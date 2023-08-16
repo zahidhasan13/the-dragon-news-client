@@ -3,7 +3,7 @@ import RightBar from "../../../shared/RightBar";
 
 const Home = () => {
     return (
-        <div className="max-w-screen-xl mx-auto grid grid-cols-4 gap-4">
+        <div className="max-w-screen-xl mx-auto grid grid-cols-4 gap-4 mt-4">
            <div className="col-span-1">
             <LeftBar></LeftBar>
            </div>
