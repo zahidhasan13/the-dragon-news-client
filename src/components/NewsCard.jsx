@@ -1,12 +1,23 @@
 import moment from "moment";
-import React from "react";
-import { HiEye, HiOutlineShare, HiOutlineStar, HiStar } from "react-icons/hi";
+import React, { useState } from "react";
+import { Toaster, toast } from "react-hot-toast";
+import { HiBookmark, HiBookmarkAlt, HiEye, HiOutlineShare, HiOutlineStar, HiStar } from "react-icons/hi";
 import { HiOutlineBookmark } from "react-icons/hi2";
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
 
 const NewsCard = ({ news }) => {
+  const [bookmark, setBookmark] = useState(false);
   const { _id, author, title, image_url, details, rating, total_view } = news;
+
+  const handleBookmark = () => {
+    if (!bookmark) {
+      setBookmark(true);
+      toast.success("Bookmarked successfully");
+    }
+  };
+
+  
   return (
     <div className="border-2 border-gray-300 rounded mb-4">
       <div className="flex items-center bg-gray-200 p-4">
@@ -25,9 +36,16 @@ const NewsCard = ({ news }) => {
           </div>
         </div>
         <div className="flex items-center text-xl">
-          <button>
-            <HiOutlineBookmark />
+          <button onClick={handleBookmark}>
+            {
+              bookmark ? (
+                <HiBookmarkAlt className="text-red-600" />
+              ) : (
+                <HiOutlineBookmark className="text-gray-600" />
+              )
+            }
           </button>
+          <Toaster/>
           <button>
             <HiOutlineShare />
           </button>
