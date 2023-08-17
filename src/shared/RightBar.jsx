@@ -1,11 +1,11 @@
-import { FaGoogle, FaGithub, FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { useContext } from 'react';
+import { toast } from 'react-hot-toast';
+import { FaFacebook, FaGithub, FaGoogle, FaInstagram, FaTwitter } from 'react-icons/fa';
+import bg from '../assets/bg.png';
 import qZone1 from '../assets/qZone1.png';
 import qZone2 from '../assets/qZone2.png';
 import qZone3 from '../assets/qZone3.png';
-import bg from '../assets/bg.png';
-import { useContext } from 'react';
 import { AuthContext } from '../context/AuthProvider';
-import { toast } from 'react-hot-toast';
 
 
 const RightBar = () => {
@@ -36,7 +36,7 @@ const RightBar = () => {
         });
     }
     return (
-        <div>
+        <div className='mx-4 lg:mx-0'>
             <div className='mb-8'>
             <h3 className='text-xl font-bold mb-4'>Login With</h3>
             <button onClick={handleGoogleSignIn} className='w-full flex justify-center items-center border-2 border-blue-500 rounded text-blue-500 py-1'><FaGoogle /><span className='ml-2 font-medium'>Login with Google</span></button>
@@ -55,14 +55,14 @@ const RightBar = () => {
             <div className='bg-gray-200 my-8 p-4'>
                 <h3 className='text-2xl text-gray-700 font-bold mb-4'>Q-Zone</h3>
                 <div className='space-y-8'>
-                <img src={qZone1} alt="" />
-                <img src={qZone2} alt="" />
-                <img src={qZone3} alt="" />
+                <img src={qZone1} alt="" className='w-full'/>
+                <img src={qZone2} alt="" className='w-full'/>
+                <img src={qZone3} alt="" className='w-full'/>
                 </div>
             </div>
             <div>
                 <div className='relative'>
-                <img src={bg} alt="" className='w-full'/>
+                <img src={bg} alt="" className='w-full lg:h-auto h-[400px]'/>
                 <div className='absolute top-0 left-0 text-white py-12 px-10 text-center'>
                     <h2 className='text-3xl font-extrabold leading-[50px]'>Create an Amazing Newspaper</h2>
                     <p className='text-xl my-8 leading-[30px]'>Discover thousands of options, easy to customize layouts, one-click to import demo and much more.</p>

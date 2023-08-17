@@ -15,7 +15,7 @@ const AuthProvider = ({children}) => {
 
     // All news load
     useEffect(() => {
-        fetch('http://localhost:5000/news')
+        fetch('https://the-dragon-news-server-durdantozahid-gmailcom.vercel.app/news')
         .then(res => res.json())
         .then(data => setAllNews(data))
     }, [])

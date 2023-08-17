@@ -6,6 +6,7 @@ import Register from "../pages/Register/Register";
 import CategoryNews from "../pages/Home/CategoryNews/CategoryNews";
 import NewsDetails from "../pages/newsDetails/NewsDetails";
 import PrivateRoute from "./PrivateRoute";
+import TermCondition from "../pages/TermCondition/TermCondition";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
           element: <Navigate to="/categories/0"></Navigate>
       },
       {
+        path: '/termcondition',
+        element: <TermCondition></TermCondition>
+      },
+      {
         path: "/",
         element: <Home></Home>,
         children: [
@@ -24,14 +29,14 @@ const router = createBrowserRouter([
             path: "categories/:id",
             element: <CategoryNews></CategoryNews>,
             loader: ({ params }) =>
-              fetch(`http://localhost:5000/categories/${params.id}`),
+              fetch(`https://the-dragon-news-server-durdantozahid-gmailcom.vercel.app/categories/${params.id}`),
           },
         ]
       },
       {
         path: "/news/:id",
         element: <PrivateRoute><NewsDetails></NewsDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/news/${params.id}`)
+        loader: ({ params }) => fetch(`https://the-dragon-news-server-durdantozahid-gmailcom.vercel.app/news/${params.id}`)
       }
     ]
   }, 
