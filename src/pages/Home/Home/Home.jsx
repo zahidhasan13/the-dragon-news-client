@@ -1,5 +1,7 @@
+import { Outlet } from "react-router-dom";
 import LeftBar from "../../../shared/LeftBar";
 import RightBar from "../../../shared/RightBar";
+import CategoryNews from "../CategoryNews/CategoryNews";
 
 const Home = () => {
     return (
@@ -7,7 +9,9 @@ const Home = () => {
            <div className="col-span-1">
             <LeftBar></LeftBar>
            </div>
-           <div className="col-span-2">Home Coming............</div>
+           <div className="col-span-2">
+            <Outlet/>
+           </div>
            <div className="col-span-1">
             <RightBar></RightBar>
            </div>

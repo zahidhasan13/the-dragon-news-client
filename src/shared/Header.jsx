@@ -21,7 +21,9 @@ const Header = () => {
             text....
           </Marquee>
         </div>
+        <div>
         <Navbar/>
+        </div>
       </div>
     </>
   );

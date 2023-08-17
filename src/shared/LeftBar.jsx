@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FaCalendar } from 'react-icons/fa';
 import sp1 from '../assets/1.png'
 import sp2 from '../assets/2.png'
@@ -17,12 +17,18 @@ const LeftBar = () => {
         <div>
             <div>
                 <h3 className="text-xl font-bold mb-4">All Categories</h3>
-                <div>
+                <div className="mb-4">
                     {
                         categories.map((category) => {
                             return (
                                 <div key={category.id}>
-                                    <Link className="text-xl font-bold text-gray-400 py-2 pl-4 inline-block">{category.name}</Link>
+                                    <NavLink to={`/categories/${category.id}`} 
+                                    className={({ isActive }) =>
+                                    isActive
+                                      ? "text-xl font-bold text-white py-2 pl-4 inline-block bg-gray-700 w-full rounded"
+                                      : "text-xl font-bold text-gray-400 py-2 pl-4 inline-block"
+                                  }
+                                    >{category.name}</NavLink>
                                 </div>
                             )
                         })
