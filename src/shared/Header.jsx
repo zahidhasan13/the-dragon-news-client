@@ -15,10 +15,7 @@ const Header = () => {
         <div className="bg-gray-500 px-2 py-1 flex text-white my-6">
           <button className="bg-red-500 px-6 text-white">Latest</button>
           <Marquee>
-            I can be a React component, multiple React components, or just some
-            text....  I can be a React component, multiple React components, or just some
-            text....  I can be a React component, multiple React components, or just some
-            text....
+          Shaquille O’Neal auctions a 1000 size 22 Reeboks for $999.32 each!  *****  Biden Pledges Nearly $3 Billion To Ukraine In Largest U.S. Military Aid Package Yet  *****  Bayern Slams Authorities Over Flight Delay to Club World Cup
           </Marquee>
         </div>
         <div>

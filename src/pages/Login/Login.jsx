@@ -1,12 +1,15 @@
 import React, { useContext, useState } from 'react';
 import logo from '../../assets/logo.png'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import { Toaster, toast } from 'react-hot-toast';
 const Login = () => {
     const [show, setShow] = useState(false);
     const {signInUser} = useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location?.state?.from?.pathname ||"/";
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -19,7 +22,7 @@ const Login = () => {
             const user = result.user;
             toast.success("Login Successfully");
             form.reset();
-            navigate('/');
+            navigate(from, {replace : true});
         })
         .catch(err =>{
             toast.error("Login Failed");

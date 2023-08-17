@@ -3,10 +3,10 @@ import React from "react";
 import { HiEye, HiOutlineShare, HiOutlineStar, HiStar } from "react-icons/hi";
 import { HiOutlineBookmark } from "react-icons/hi2";
 import Rating from "react-rating";
+import { Link } from "react-router-dom";
 
 const NewsCard = ({ news }) => {
   const { _id, author, title, image_url, details, rating, total_view } = news;
-  console.log(news);
   return (
     <div className="border-2 border-gray-300 rounded mb-4">
       <div className="flex items-center bg-gray-200 p-4">
@@ -39,30 +39,25 @@ const NewsCard = ({ news }) => {
         <p className="text-lg font-medium text-gray-500">
           {details.slice(0, 250)}...
         </p>
-        <button className="text-orange-500 font-bold text-lg">Read More</button>
+        <Link to={`/news/${_id}`} className="text-orange-500 font-bold text-lg">Read More</Link>
       </div>
       <div className="p-4">
-      <hr className="my-4"/>
+        <hr className="my-4" />
         <div className="flex">
-        <div className="flex-grow text-lg text-yellow-500">
-        <Rating
-          placeholderRating={rating.number}
-          emptySymbol={
-            <HiOutlineStar/>
-          }
-          placeholderSymbol={
-            <HiStar/>
-          }
-          fullSymbol={
-            <HiStar/>
-          }
-          readonly
-        /> <span className="text-gray-600 font-medium">{rating.number}</span>
-        </div>
-        <div className="flex items-center text-lg text-gray-600 font-medium">
-            <HiEye/>
-         <p className="ml-2">{total_view}</p>
-        </div>
+          <div className="flex-grow text-lg text-yellow-500">
+            <Rating
+              placeholderRating={rating.number}
+              emptySymbol={<HiOutlineStar />}
+              placeholderSymbol={<HiStar />}
+              fullSymbol={<HiStar />}
+              readonly
+            />{" "}
+            <span className="text-gray-600 font-medium">{rating.number}</span>
+          </div>
+          <div className="flex items-center text-lg text-gray-600 font-medium">
+            <HiEye />
+            <p className="ml-2">{total_view}</p>
+          </div>
         </div>
       </div>
     </div>
